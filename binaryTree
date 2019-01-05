@@ -1,0 +1,33 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isSubtree(TreeNode* s, TreeNode* t) {
+        inOrder(s,t);
+        return false;
+    }
+    void inOrder(TreeNode* s, TreeNode* t)
+    {
+        TreeNode* prev;
+        if(s->left != nullptr)
+        {
+            prev = s;
+            inOrder(s->left);
+            cout << "left : "<<s->left->val << endl;
+        }
+        if(prev->right != nullptr)
+        {
+            cout << " root : " << prev->val << " right :" <<prev->right->val << endl;
+            inOrder(prev->right);
+        }
+        else
+            return;
+    }
+};
