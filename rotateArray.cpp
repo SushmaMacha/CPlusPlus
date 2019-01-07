@@ -6,10 +6,10 @@ public:
         int s = nums.size();
         if(k > s)
             k = k-s;
-         int temp = 0,i=0,a=s/k,t=k,m=2,j=m*k;
+         int temp = 0,i=0,a=s/k,t=k,m=2,j=0;
         while(a > 0)
         {
-            t = k;
+            t = k;j=m*k;
             if(s > j)
             {
                 while(t > 0)
@@ -21,7 +21,7 @@ public:
                 }
                 a--;m++;
             }
-            if(m*k >= s)
+            if(m*k > s)
             {
                 t = (s-((m-1)*k))-1;i=0;
                 while(t>=0)
