@@ -6,12 +6,7 @@ public:
         int s = nums.size(),i=0,j=0,t=0,temp=nums[0];
         if(k > s)
             k = k-s;
-        //cout << k << s << endl;
-        //temp = nums[k-1];
-        //temp = temp+nums[((i+1)*k)-1]; 
-        //while(j<k)
-        //{
-            while(1)
+            while(j < s)
             {
                 t = t+k;
                 if(t >= s)
@@ -22,9 +17,14 @@ public:
                 temp = temp+nums[t];
                 nums[t]=temp-nums[t];
                 temp = temp-nums[t];
-                //cout << temp;
-                if(t==j)
-                    break;
+                //cout << temp << endl;
+                j++;
+                if(s%k == 0 && t < k)
+                {
+                    t++;
+                    temp = nums[t];  
+                    cout << temp << endl;
+                }        
             }
             //j++;
             //temp = nums[j];
