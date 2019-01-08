@@ -19,7 +19,7 @@ public:
                 temp = temp-nums[t];
                 //cout << temp << endl;
                 j++;
-                if(s%k == 0 && t < k)
+                if((s%k == 0) && t < k)
                 {
                     t++;
                     temp = nums[t];  
