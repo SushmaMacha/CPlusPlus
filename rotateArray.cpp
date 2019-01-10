@@ -1,34 +1,23 @@
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
-         if(k==0)
+        int temp,i=0,j=0,s = nums.size(),count=0;
+        k = k%s;
+        if(k == 0 || s == 1)
             return;
-        int s = nums.size(),i=0,j=0,t=0,temp=nums[0];
-        if(k > s)
-            k = k-s;
-            while(j < s)
-            {
-                t = t+k;
-                if(t >= s)
-                {
-                    t=(t-s);
-                    //cout << t << endl;
-                }
-                temp = temp+nums[t];
-                nums[t]=temp-nums[t];
-                temp = temp-nums[t];
-                //cout << temp << endl;
-                j++;
-                if((s%k == 0) && t < k)
-                {
-                    t++;
-                    temp = nums[t];  
-                    cout << temp << endl;
-                }        
+        while(count < s)
+        {
+            temp = nums[j];
+            i=j;
+            do{ 
+                i = (i+k)%s;
+                temp = temp + nums[i];
+                nums[i] = temp-nums[i];
+                temp = temp - nums[i];
+                count++;
             }
-            //j++;
-            //temp = nums[j];
-          //  t = j;
-        //}
+            while(i != j);
+            j++;
+        }
     }
 };
