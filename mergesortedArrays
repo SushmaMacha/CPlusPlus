@@ -1,0 +1,27 @@
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int sz = nums1.size(), i = 0, j= sz-n,k=0;
+        //cout << sz << endl;
+        if(n == 0)
+            return;
+        for(k=0;k < n;k++)
+        {
+            for(; i < sz ; i++)
+            {
+                if(nums2[k] <= nums1[i])
+                { 
+                    nums1.insert(nums1.begin()+i,nums2[k]);
+                    i++;j++;
+                    nums1.erase(nums1.begin()+sz);
+                    break;
+                }
+                if(i >= j && nums1[i] == 0)
+                {
+                    nums1[i] = nums2[k];
+                    break;
+                }
+            }
+        }
+    }
+};
