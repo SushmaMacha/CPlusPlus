@@ -14,7 +14,7 @@ public:
         //if one of them hits null when the other doesnt
         //In-Order traversal left root right
         TreeNode* x = p, *y = q;
-        static bool r = true;
+        bool r = true;
         //check for null
         if(p == NULL && q == NULL)
             return true;
